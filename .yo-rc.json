@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "nz.co.atomiclabs",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.3.0",
+    "applicationType": "microservice",
+    "baseName": "content2",
+    "packageName": "nz.co.atomiclabs",
+    "packageFolder": "nz/co/atomiclabs",
+    "serverPort": "8081",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Y2E2MTgwMWQ5NTM5ZjkwMmJmNTQ4OTI5OGM2ZmJjZDQ5ZmYxZmJlM2MxZWM5NWI0ZjlkZjdmN2VhNDcyMzg1MzZiMTY0MjFmZWVlYzgwZjFiNDljOTU4NmZmYWUxYjE5ZjRjY2IyYjRmZjFkYTc0ODBkZDQ0MGQ4NmU1ODM2NDQ=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
