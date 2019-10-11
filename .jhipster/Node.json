@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "content2",
+    "relationships": [
+        {
+            "relationshipName": "parent",
+            "otherEntityName": "node",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+          "fieldName": "search",
+          "fieldType": "String"
+        },
+        {
+          "fieldName": "parentPath",
+          "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190915093740",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "node",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "microserviceName": "content2"
+}

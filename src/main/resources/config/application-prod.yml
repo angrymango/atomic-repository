@@ -47,7 +47,7 @@ spring:
       poolName: Hikari
       auto-commit: false
   jpa:
-    database-platform: io.github.jhipster.domain.util.FixedPostgreSQL95Dialect
+    database-platform: nz.co.atomiclabs.repository.extension.ExtendedPostgreSQLDialect
     database: POSTGRESQL
     show-sql: false
     properties:

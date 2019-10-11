@@ -102,6 +102,12 @@ test {
     exclude "**/*IT*", "**/*IntTest*"
     testLogging {
         events 'FAILED', 'SKIPPED'
+
+        // set options for log level DEBUG
+        debug {
+            events "started", "skipped", "failed"
+            exceptionFormat "full"
+        }
     }
     // uncomment if the tests reports are not generated
     // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
@@ -146,8 +152,8 @@ liquibase {
         main {
             driver "org.postgresql.Driver"
             url "jdbc:postgresql://localhost:5432/content2"
-            username "content2"
-            password ""
+            username "postgres"
+            password "postgres"
             changeLogFile "src/main/resources/config/liquibase/master.xml"
             defaultSchemaName ""
             logLevel "debug"
@@ -156,10 +162,10 @@ liquibase {
         diffLog {
             driver "org.postgresql.Driver"
             url "jdbc:postgresql://localhost:5432/content2"
-            username "content2"
-            password ""
+            username "postgres"
+            password "postgres"
             changeLogFile project.ext.diffChangelogFile
-            referenceUrl "hibernate:spring:nz.co.atomiclabs.domain?dialect=org.hibernate.dialect.PostgreSQL95Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
+            referenceUrl "hibernate:spring:nz.co.atomiclabs.domain?dialect=nz.co.atomiclabs.repository.extension.ExtendedPostgreSQLDialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
             defaultSchemaName ""
             logLevel "debug"
             classpath "$buildDir/classes/java/main"
@@ -268,8 +274,20 @@ dependencies {
     testImplementation "junit:junit"
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.hamcrest:hamcrest-library"
-    testImplementation "com.h2database:h2"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+
+
+    liquibaseRuntime sourceSets.main.output
+    implementation "org.hibernate:hibernate-spatial"
+    implementation 'org.hibernate:hibernate-envers'
+    implementation 'org.springframework.data:spring-data-envers'
+    implementation 'com.vladmihalcea:hibernate-types-52:2.6.1'
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+    implementation 'javax.activation:activation:1.1'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.0'
+
+    testCompile "org.testcontainers:postgresql:1.12.2"
 }
 
 task cleanResources(type: Delete) {

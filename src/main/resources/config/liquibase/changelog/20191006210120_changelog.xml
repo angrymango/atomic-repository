@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="tking (generated)" id="1570348888095-2">
+        <createTable tableName="js_module_aud">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="js_module_audPK"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="js_module_audPK"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="auto_load" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(20)"/>
+            <column name="source" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1570348888095-3">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="js_module_aud" constraintName="FKhivlsqp89gv0agckyfcg86b3g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="audit_revision" validate="true"/>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1570348888095-1">
+        <alterSequence incrementBy="50" sequenceName="sequence_generator"/>
+    </changeSet>
+</databaseChangeLog>

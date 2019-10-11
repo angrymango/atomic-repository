@@ -1,0 +1,53 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="tking (generated)" id="1568609374048-3">
+        <addColumn tableName="node">
+            <column name="_search" type="tsvector"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-4">
+        <addColumn tableName="node">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-5">
+        <addColumn tableName="node">
+            <column name="created_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-6">
+        <addColumn tableName="node">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-7">
+        <addColumn tableName="node">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-8">
+        <alterSequence incrementBy="50" sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-9">
+        <addNotNullConstraint columnDataType="jsonb" columnName="content" tableName="node" validate="true"/>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-10">
+        <createProcedure path="config/liquibase/changelog/20190916164925_1_changelog.sql"/>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-11">
+        <sql>CREATE EXTENSION ltree;</sql>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-12">
+        <addColumn tableName="node">
+            <column name="parent_path" type="ltree"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-13">
+        <createProcedure path="config/liquibase/changelog/20190916164925_2_changelog.sql"/>
+    </changeSet>
+    <changeSet author="tking (generated)" id="1568609374048-14">
+        <dropColumn columnName="_search" tableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>
